@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let movie of moviesData">
+        <div class ="card" >
+            <figure class="moviecard text-white">
+                <img class="w-100" src="https://image.tmdb.org/t/p/w500/{{movie.backdrop_path || movie.poster_path}}"
+                [alt]="movie.title || movie.original_title"
+                [title]="movie.title || movie.original_title"
+                 />
+
+                <figcaption>
+                     <div class="movieTitle p-4">
+                        <div class="row">
+                             <div class="col-10">
+                                <h3 class="md-0">
+                                    {{movie.title || movie.original_title}}  
+                                   <!----{{movie.title ? movie.title : movie.original_title}}-->
+                               </h3>
+                             </div>
+                             <div class="col-2 rating align-self-center">
+                                <span class=" p-2 rating"
+                                [ngClass]="{
+                                    'bg-success': movie.vote_average >=7.5,
+                                    'bg-warning': movie.vote_average >= 5 && movie.vote_average < 7.5,
+                                    'bg-danger': movie.vote_average <=5
+
+                                }"
+                                > 
+                                    {{movie.vote_average}}
+                                </span>
+                             </div>
+                        </div>
+                        <div class="movieoverview">
+                            <h4>
+                                {{movie.title || movie.original_title}} 
+                                </h4>
+                                <p>
+                                <em>overview</em>
+                                {{movie.overview}}
+                                </p>
+                        </div>
+                     </div>
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
